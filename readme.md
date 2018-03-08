@@ -63,6 +63,9 @@ php artisan make:model CheckOrderItemChangeLog --all
 
 php artisan make:model Supplier --all
 
+php artisan make:model Stock --all
+php artisan make:model StockLog --all
+
 
 </pre>
 
