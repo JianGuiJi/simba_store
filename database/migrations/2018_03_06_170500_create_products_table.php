@@ -40,6 +40,9 @@ class CreateProductsTable extends Migration
             $table->string('usage_method',32)->comment('使用方法');
             $table->string('qgp',16)->comment('保质期：Quality guarantee period');
 
+            $table->string('com_id', 32)->comment('公司编码');
+            $table->string('sh_id', 32)->comment('店铺编码');
+            $table->string('user_id',32)->comment('用户uuid');
             $table->timestamps();
             $table->unique('barcode');
         });

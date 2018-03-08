@@ -24,6 +24,9 @@ class CreateProductSkusTable extends Migration
             $table->string('category_uuid', 64)->comment('类目ID');
             $table->decimal('sale_price', 8, 2)->comment('售价');
             $table->decimal('vip_price', 8, 2)->comment('会员价');
+            $table->string('com_id', 32)->comment('公司编码');
+            $table->string('sh_id', 32)->comment('店铺编码');
+            $table->string('user_id',32)->comment('用户uuid');
             $table->timestamps();
             $table->unique('sku');
         });
