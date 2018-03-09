@@ -13,8 +13,10 @@ class CreateVipMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('vip_members', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('vip_member', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('name', 16);
             $table->string('tel', 24);
             $table->string('mobile', 24);

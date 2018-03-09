@@ -13,8 +13,10 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('order', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('eid', 32)->comment('订单编号');
             $table->integer('total_sku')->comment('商品SKU总数');
             $table->integer('total_barcode')->comment('商品条码总数');

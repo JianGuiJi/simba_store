@@ -13,11 +13,13 @@ class CreateShopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('sh_id', 32)->comment('店铺编码');
+        Schema::create('shop', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
+//            $table->string('sh_id', 32)->comment('店铺编码');
             $table->string('name', 32)->comment('名称');
-            $table->string('sh_admin', 32)->comment('店长');
+            $table->string('shop_admin', 32)->comment('店长');
             $table->string('status', 16)->comment('状态');
             $table->string('mobile', 24)->comment('手机');
             $table->string('tel', 24)->comment('电话');
@@ -27,7 +29,10 @@ class CreateShopsTable extends Migration
             $table->string('address')->comment('地址');
             $table->string('com_id', 32)->comment('公司编码');
             $table->string('user_id',32)->comment('用户uuid');
-            $table->timestamps();
+            $table->dateTime('created_time');
+            $table->dateTime('updated_time');
+            $table->dateTime('deleted_time')->nullable();
+//            $table->timestamps();
         });
     }
 

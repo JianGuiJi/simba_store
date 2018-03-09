@@ -13,11 +13,16 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('product', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('barcode', 64)->comment('商品条码');
-            $table->decimal('shoppe_price', 8, 2)->comment('专柜价');
-            $table->decimal('brd_price', 8, 2)->comment('品牌方控价');
+            $table->unique('barcode');
+            $table->string('brand_id', 64)->comment('品牌ID');
+            $table->string('category_id', 64)->comment('类目ID');
+            $table->integer('shoppe_price')->comment('专柜价');
+            $table->integer('brd_price')->comment('品牌方控价');
             $table->dateTime('ttm')->comment('上市时间');
             $table->string('prd_area', 32)->comment('产地');
             $table->string('prd_epr', 32)->comment('生产企业');
@@ -40,11 +45,15 @@ class CreateProductsTable extends Migration
             $table->string('usage_method',32)->comment('使用方法');
             $table->string('qgp',16)->comment('保质期：Quality guarantee period');
 
-            $table->string('com_id', 32)->comment('公司编码');
-            $table->string('sh_id', 32)->comment('店铺编码');
-            $table->string('user_id',32)->comment('用户uuid');
-            $table->timestamps();
-            $table->unique('barcode');
+//            $table->string('com_id', 32)->comment('公司id');
+//            $table->string('sh_id', 32)->comment('店铺id');
+            $table->string('user_id',32)->comment('用户id');
+
+            $table->dateTime('created_time')->comment('创建时间');
+            $table->dateTime('updated_time')->comment('修改时间');
+            $table->dateTime('deleted_time')->comment('删除时间')->nullable();
+//            $table->timestamps();//created_at
+
         });
     }
 

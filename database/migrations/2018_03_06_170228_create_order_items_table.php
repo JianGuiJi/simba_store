@@ -13,8 +13,10 @@ class CreateOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('order_item', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('eid', 32)->comment('订单编号');
             $table->string('barcode', 64)->comment('商品条码');
             $table->string('sku', 64)->comment('SKU：stock keeping unit');

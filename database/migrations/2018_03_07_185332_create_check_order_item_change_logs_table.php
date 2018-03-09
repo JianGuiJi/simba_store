@@ -13,8 +13,11 @@ class CreateCheckOrderItemChangeLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('check_order_item_change_logs', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('check_order_detail_change_log', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
+            $table->string("check_order_id", 64)->comment('盘点单id');
             $table->string("check_id", 64)->comment('盘点单号');
             $table->string('status',16)->comment('状态');
             $table->string('content')->comment('日志内容');

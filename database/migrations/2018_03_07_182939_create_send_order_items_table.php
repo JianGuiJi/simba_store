@@ -13,9 +13,11 @@ class CreateSendOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('send_order_items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string("send_id", 64)->comment('配货单号');
+        Schema::create('send_order_detail', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
+            $table->string("send_order_id", 64)->comment('配货单id');
             $table->string('barcode', 64)->comment('商品条码');
             $table->string('sku', 64)->comment('SKU：stock keeping unit');
             $table->string('sku_name', 50)->comment('商品名称');
@@ -23,8 +25,15 @@ class CreateSendOrderItemsTable extends Migration
             $table->string('unit', 8)->comment('单位');
 //            $table->dateTime('expire_time')->comment('商品过期时间');
             $table->integer('num')->comment('出库数量');
+
             $table->string('com_id', 32)->comment('公司编码');
-            $table->string('user_id',32)->comment('用户uuid');
+//            $table->string('sh_id', 32)->comment('店铺编码')->nullable();
+            $table->string('user_id', 32)->comment('用户uuid');
+
+            $table->dateTime('created_time')->comment('创建时间');
+            $table->dateTime('updated_time')->comment('修改时间');
+            $table->dateTime('close_time')->comment('作废时间')->nullable();
+//            $table->dateTime('deleted_time')->comment('删除时间')->nullable();
             $table->timestamps();
         });
     }

@@ -13,8 +13,10 @@ class CreateRolePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_permissions', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('role_permission', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->integer('role_id');
             $table->integer('permission_id');
             $table->string('com_id', 32)->comment('公司编码');

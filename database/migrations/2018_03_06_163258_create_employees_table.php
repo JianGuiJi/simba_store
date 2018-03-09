@@ -13,13 +13,16 @@ class CreateEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('employee', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('name', 20)->comment('名称');//为字段增加注释（仅限 MySQL）
             $table->integer('age');
             $table->string('tel',20);
             $table->string('phone');
-            $table->string('description')->nullable('');
+            $table->string('description')->nullable();
+
             $table->timestamps();
         });
     }

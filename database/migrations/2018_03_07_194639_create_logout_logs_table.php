@@ -13,8 +13,10 @@ class CreateLogoutLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('logout_logs', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('logout_log', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->dateTime('last_logout_time')->comment('登录的时间');
             $table->string('last_logout_ip')->comment('登录的ip');
             $table->string('sh_id', 32)->comment('店铺编码');

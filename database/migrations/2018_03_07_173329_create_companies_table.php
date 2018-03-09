@@ -13,9 +13,11 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('com_id', 32)->comment('公司编码');
+        Schema::create('company', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
+//            $table->string('com_id', 32)->comment('公司编码');
             $table->string('user_id',32)->comment('用户uuid');
             $table->string('name', 16)->comment('公司名称');
             $table->string('legal_name', 32)->comment('法人代表');
@@ -29,7 +31,10 @@ class CreateCompaniesTable extends Migration
             $table->string('dist', 16)->comment('区');
             $table->string('address')->comment('地址');
 
-            $table->timestamps();
+            $table->dateTime('created_time');
+            $table->dateTime('updated_time');
+            $table->dateTime('deleted_time')->nullable();
+//            $table->timestamps();
         });
     }
 

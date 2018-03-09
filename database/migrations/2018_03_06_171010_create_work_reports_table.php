@@ -13,8 +13,10 @@ class CreateWorkReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('work_reports', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('work_report', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('work_id',32)->comment('交接编号');
             $table->integer('cash')->comment('应收现金');
             $table->integer('total_money')->comment('总销售额');

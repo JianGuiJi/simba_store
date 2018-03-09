@@ -13,9 +13,11 @@ class CreateCheckOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('check_order_items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string("check_id", 64)->comment('盘点单号');
+        Schema::create('check_order_detail', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
+            $table->string("check_order_id", 64)->comment('盘点单id');
             $table->string('barcode', 64)->comment('商品条码');
             $table->string('sku', 64)->comment('SKU：stock keeping unit');
             $table->string('sku_name', 50)->comment('商品名称');

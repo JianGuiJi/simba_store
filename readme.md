@@ -39,8 +39,11 @@ php artisan make:model Employee --all
 php artisan make:model VipMember --all
 php artisan make:model Order --all
 php artisan make:model OrderItem --all
+
 php artisan make:model Product --all
 php artisan make:model ProductSku --all
+php artisan make:model ProductSkuShop --all
+php artisan make:model SkuShop --all
 
 php artisan make:model WorkReport --all
 
@@ -65,7 +68,7 @@ php artisan make:model Supplier --all
 
 php artisan make:model Stock --all
 php artisan make:model StockLog --all
-
+php artisan make:model Category --all
 
 </pre>
 

@@ -13,10 +13,15 @@ class CreateDepartmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('department', function (Blueprint $table) {
+//            $table->increments('id');
+            $table->string('id', 32)->comment('uuid');
+            $table->primary('id');
             $table->string('name', 20)->comment('名称');//为字段增加注释（仅限 MySQL）
-            $table->string('description')->nullable('');
+            $table->string('description')->nullable();
+            $table->string('company_id', 32)->comment('公司id');
+            $table->string('shop_id', 32)->comment('店铺id');
+            $table->string('user_id',32)->comment('用户id');
             $table->timestamps();
         });
     }
