@@ -36,7 +36,7 @@ class CreateSuppliersTable extends Migration
             $table->string('remark')->comment('备注')->nullable();
             $table->string('status', 16)->comment('状态');
 
-            $table->string('company_id', 32)->comment('公司编码');
+            $table->string('company_id', 32)->comment('公司id');
             $table->string('user_id',32)->comment('创建人：用户uuid');
             $table->dateTime('created_time')->comment('创建时间');
             $table->dateTime('updated_time')->comment('修改时间');

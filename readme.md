@@ -68,7 +68,11 @@ php artisan make:model CheckOrderItemChangeLog --all
 php artisan make:model Supplier --all
 
 php artisan make:model Stock --all
+php artisan make:model StockMove --all
 php artisan make:model StockLog --all
+php artisan make:model StockMove --all
+php artisan make:model StockWay--all
+
 php artisan make:model Category --all
 php artisan make:model Brand --all
 php artisan make:model Test --all

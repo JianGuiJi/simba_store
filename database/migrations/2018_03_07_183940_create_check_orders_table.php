@@ -23,8 +23,8 @@ class CreateCheckOrdersTable extends Migration
             $table->string('status',16)->comment('状态');
             $table->integer('prt_count')->comment('打印次数')->nullable();
 
-            $table->string('shop_id', 32)->comment('店铺编码');
-            $table->string('company_id', 32)->comment('公司编码');
+            $table->string('shop_id', 32)->comment('店铺id');
+            $table->string('company_id', 32)->comment('公司id');
             $table->string('user_id',32)->comment('创建人：用户uuid');
 
             $table->dateTime('created_time')->comment('创建时间');

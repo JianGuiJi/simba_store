@@ -22,7 +22,7 @@ class CreateCheckOrderItemChangeLogsTable extends Migration
             $table->string("check_id", 64)->comment('盘点单号');
             $table->string('status',16)->comment('状态');
             $table->string('content')->comment('日志内容');
-            $table->string('com_id', 32)->comment('公司编码');
+            $table->string('company_id', 32)->comment('公司id');
             $table->string('user_id',32)->comment('用户uuid');
             $table->dateTime('created_time')->comment('创建时间');
             $table->dateTime('updated_time')->comment('修改时间');

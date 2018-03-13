@@ -15,8 +15,8 @@ class CreateTestsTable extends Migration
     public function up()
     {
         Schema::create('tests', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id')->comment('column comment');
-
             $table->integer('int')->default(1)->length(1);
             $table->bigInteger('big')->default(1)->length(1);
             $table->smallInteger('small')->default(1)->length(1);

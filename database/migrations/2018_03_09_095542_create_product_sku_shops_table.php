@@ -20,11 +20,11 @@ class CreateProductSkuShopsTable extends Migration
             $table->string('name', 50)->comment('商品名称');
             $table->string('sku_num', 64)->comment('SKU编码');
             $table->string('sku_id', 64)->comment('skuID');
+
             $table->string('spec_name', 20)->comment('规格');
-            $table->string('plank', 8)->comment('挡板');
-            $table->bigInteger('qty')->comment('库存');
             $table->bigInteger('sale_price')->comment('售价');
             $table->bigInteger('vip_price')->comment('会员价');
+
             $table->bigInteger('min_price')->comment('成本');
             
             $table->string('status',16)->comment('状态');

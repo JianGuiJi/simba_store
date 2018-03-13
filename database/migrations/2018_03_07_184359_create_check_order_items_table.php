@@ -27,7 +27,7 @@ class CreateCheckOrderItemsTable extends Migration
             $table->string('unit', 8)->comment('单位');
             $table->integer('num_pre')->comment('系统数量（盘点前该店铺该SKU的数量）');
             $table->integer('num')->comment('盘点数量');
-            $table->string('company_id', 32)->comment('公司编码');
+            $table->string('company_id', 32)->comment('公司id');
             $table->string('user_id',32)->comment('用户uuid');
             $table->string('status',16)->comment('状态');
 
