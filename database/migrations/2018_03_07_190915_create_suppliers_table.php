@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
+//use Illuminate\Support\Facades\Schema;
+use Jialeo\LaravelSchemaExtend\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -17,7 +18,7 @@ class CreateSuppliersTable extends Migration
 //            $table->increments('id');
             $table->string('id', 32)->comment('uuid');
             $table->primary('id');
-//            $table->string('supplier_id', 32)->comment('编码');
+            $table->string('short_name', 32)->comment('供应商简称');
             $table->string('name', 32)->comment('名称');
             $table->string('contact_tel', 24)->comment('公司固定电话')->nullable();
             $table->string('contact_name', 32)->comment('联系人姓名');
@@ -35,12 +36,11 @@ class CreateSuppliersTable extends Migration
             $table->string('remark')->comment('备注')->nullable();
             $table->string('status', 16)->comment('状态');
 
-            $table->string('com_id', 32)->comment('公司编码');
+            $table->string('company_id', 32)->comment('公司编码');
             $table->string('user_id',32)->comment('创建人：用户uuid');
             $table->dateTime('created_time')->comment('创建时间');
             $table->dateTime('updated_time')->comment('修改时间');
-//            $table->dateTime('close_time')->comment('作废时间')->nullable();
-            $table->timestamps();
+            $table->comment = '供应商表';
         });
     }
 

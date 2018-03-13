@@ -5,26 +5,27 @@ use Jialeo\LaravelSchemaExtend\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
-     * 类目
+     * 品牌表
      * @return void
      */
     public function up()
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('brand', function (Blueprint $table) {
             $table->string('id', 32)->comment('uuid');
             $table->primary('id');
-            $table->string('name')->comment('名称');
-            $table->string('level')->comment('目录级别');
-            $table->string('parent_id')->comment('上级uuid');
-            $table->string('status',16)->comment('状态');
+            $table->string('zh_name')->comment('中文名');
+            $table->string('en_name')->comment('英文名')->nullable();
+            $table->string('country')->comment('国家')->nullable();
+
+            $table->string('status', 16)->comment('状态');
             $table->string('company_id', 32)->comment('公司id');
             $table->dateTime('created_time')->comment('创建时间');
             $table->dateTime('updated_time')->comment('修改时间');
-            $table->comment = '类目表-商品分类';
+            $table->comment = '品牌表';
         });
     }
 
@@ -35,6 +36,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('brands');
     }
 }

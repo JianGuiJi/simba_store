@@ -5,26 +5,28 @@ use Jialeo\LaravelSchemaExtend\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateProductSkuShopLogsTable extends Migration
 {
     /**
      * Run the migrations.
-     * 类目
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('product_sku_shop_logs', function (Blueprint $table) {
             $table->string('id', 32)->comment('uuid');
             $table->primary('id');
-            $table->string('name')->comment('名称');
-            $table->string('level')->comment('目录级别');
-            $table->string('parent_id')->comment('上级uuid');
-            $table->string('status',16)->comment('状态');
+            $table->string("product_sku_shop_id", 64)->comment('店铺skuId');
+            $table->string('status', 16)->comment('状态');
+            $table->string('content')->comment('日志内容');
             $table->string('company_id', 32)->comment('公司id');
+            $table->string('shop_id', 32)->comment('店铺id');
+            $table->string('user_id',32)->comment('用户id');
+
             $table->dateTime('created_time')->comment('创建时间');
             $table->dateTime('updated_time')->comment('修改时间');
-            $table->comment = '类目表-商品分类';
+            $table->comment = '店铺SKU 日志表';
         });
     }
 
@@ -35,6 +37,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('product_sku_shop_logs');
     }
 }

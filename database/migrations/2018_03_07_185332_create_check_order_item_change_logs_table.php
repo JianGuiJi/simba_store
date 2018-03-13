@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
+//use Illuminate\Support\Facades\Schema;
+use Jialeo\LaravelSchemaExtend\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -13,7 +14,7 @@ class CreateCheckOrderItemChangeLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('check_order_detail_change_log', function (Blueprint $table) {
+        Schema::create('check_order_change_log', function (Blueprint $table) {
 //            $table->increments('id');
             $table->string('id', 32)->comment('uuid');
             $table->primary('id');
@@ -23,7 +24,9 @@ class CreateCheckOrderItemChangeLogsTable extends Migration
             $table->string('content')->comment('日志内容');
             $table->string('com_id', 32)->comment('公司编码');
             $table->string('user_id',32)->comment('用户uuid');
-            $table->timestamps();
+            $table->dateTime('created_time')->comment('创建时间');
+            $table->dateTime('updated_time')->comment('修改时间');
+            $table->comment = '盘点单日志表';
         });
     }
 

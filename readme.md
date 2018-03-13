@@ -43,6 +43,7 @@ php artisan make:model OrderItem --all
 php artisan make:model Product --all
 php artisan make:model ProductSku --all
 php artisan make:model ProductSkuShop --all
+php artisan make:model ProductSkuShopLog --all
 php artisan make:model SkuShop --all
 
 php artisan make:model WorkReport --all
@@ -69,12 +70,16 @@ php artisan make:model Supplier --all
 php artisan make:model Stock --all
 php artisan make:model StockLog --all
 php artisan make:model Category --all
+php artisan make:model Brand --all
+php artisan make:model Test --all
 
 </pre>
 
 
 
 
+表注释插件更换
+https://github.com/zedisdog/laravel-schema-extend
 
 
 

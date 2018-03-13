@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
+//use Illuminate\Support\Facades\Schema;
+use Jialeo\LaravelSchemaExtend\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -23,11 +24,9 @@ class CreateReciveOrderChangeLogsTable extends Migration
             $table->string('sh_id', 32)->comment('店铺编码');
             $table->string('com_id', 32)->comment('公司编码');
             $table->string('user_id',32)->comment('用户uuid');
-
             $table->dateTime('created_time')->comment('创建时间');
-//            $table->dateTime('updated_time')->comment('修改时间');
-//            $table->dateTime('deleted_time')->comment('删除时间')->nullable();
-//            $table->timestamps();
+            $table->dateTime('updated_time')->comment('修改时间');
+            $table->comment = '收货入库日志表';
         });
     }
 

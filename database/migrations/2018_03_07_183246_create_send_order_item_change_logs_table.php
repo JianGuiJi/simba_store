@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
+//use Illuminate\Support\Facades\Schema;
+use Jialeo\LaravelSchemaExtend\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -13,7 +14,7 @@ class CreateSendOrderItemChangeLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('send_order_detail_change_log', function (Blueprint $table) {
+        Schema::create('send_order_change_log', function (Blueprint $table) {
 //            $table->increments('id');
             $table->string('id', 32)->comment('uuid');
             $table->primary('id');
@@ -24,7 +25,8 @@ class CreateSendOrderItemChangeLogsTable extends Migration
             $table->string('com_id', 32)->comment('公司编码');
             $table->string('user_id',32)->comment('用户uuid');
             $table->dateTime('created_time')->comment('创建时间');
-//            $table->timestamps();
+            $table->dateTime('updated_time')->comment('修改时间');
+            $table->comment = '配货发货单日志表';
         });
     }
 
